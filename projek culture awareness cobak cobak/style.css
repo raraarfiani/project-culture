@@ -1,0 +1,653 @@
+/* ==========================
+   1. GENERAL
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f7f3eb;
+    color: #292b25;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+:root {
+    --cream: #f7f3eb;
+    --brown: #ad6746;
+    --green: #536653;
+    --dark: #293b30;
+    --gray: #77766e;
+    --border: #ded8ca;
+}
+
+
+/* ==========================
+   2. NAVBAR
+========================== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    color: #292b25;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--brown);
+}
+
+.back-link {
+    color: var(--brown);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* ==========================
+   3. WELCOME PAGE
+========================== */
+
+.welcome-page {
+    min-height: 100vh;
+}
+
+.welcome-container {
+    min-height: calc(100vh - 75px);
+    display: flex;
+    align-items: center;
+    padding: 70px 12%;
+
+    background:
+    linear-gradient(
+        rgba(30, 39, 31, 0.58),
+        rgba(30, 39, 31, 0.58)
+    ),
+    url("images/hero-sumatra.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.welcome-content {
+    color: white;
+    max-width: 650px;
+}
+
+.small-title {
+    color: var(--brown);
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.welcome-content .small-title {
+    color: #e9c49e;
+}
+
+.welcome-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 80px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.welcome-content h1 span {
+    color: #e4b78e;
+    font-style: italic;
+}
+
+.welcome-content p:not(.small-title) {
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 30px;
+    color: #eee9df;
+    max-width: 480px;
+}
+
+
+/* ==========================
+   4. BUTTONS
+========================== */
+
+.start-button {
+    border: none;
+    background: var(--brown);
+    color: white;
+    padding: 14px 28px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.start-button:hover {
+    background: #874b32;
+    transform: translateY(-3px);
+}
+
+.member-button {
+    border: 1px solid var(--brown);
+    color: var(--brown);
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.member-button:hover {
+    background: var(--brown);
+    color: white;
+}
+
+
+/* ==========================
+   5. MEMBER POPUP
+========================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.65);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--cream);
+    padding: 40px;
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    animation: appear 0.3s ease;
+}
+
+.modal-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.close-button {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: var(--brown);
+}
+
+.member-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.member-card {
+    background: #eee7d9;
+    border-top: 3px solid var(--brown);
+    padding: 18px;
+}
+
+.member-card h3 {
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.member-card p {
+    font-size: 11px;
+    color: var(--gray);
+}
+
+
+/* ==========================
+   6. GENERAL PAGE
+========================== */
+
+.page-container {
+    padding: 75px 8%;
+    min-height: 85vh;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 58px);
+    margin-bottom: 12px;
+}
+
+.section-title p:last-child {
+    font-size: 13px;
+    color: var(--gray);
+}
+
+
+/* ==========================
+   7. MAP PAGE
+========================== */
+
+.map-layout {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 20px;
+    align-items: start;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* JAVA MAP */
+
+.map-box {
+    background: var(--green);
+    color: white;
+    padding: 22px;
+    text-align: center;
+}
+
+.map-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    margin-bottom: 18px;
+}
+
+.java-image {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+}
+
+.map-box p {
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* CHOOSE YOUR DESTINATION */
+
+.province-box {
+    background: white;
+    padding: 22px;
+    height: fit-content;
+
+    /* Mengatur posisi ke tengah */
+    margin-top: 65px;
+}
+
+.province-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    margin-bottom: 18px;
+}
+
+.province-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.province-list button {
+    padding: 13px 10px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.province-list button:hover {
+    background: var(--brown);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* BOTTOM NAVIGATION */
+
+.bottom-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.bottom-navigation a {
+    color: var(--brown);
+    font-size: 12px;
+}
+
+/* RESPONSIVE HP */
+
+@media (max-width: 768px) {
+    .map-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .province-box {
+        margin-top: 0;
+    }
+
+    .java-image {
+        height: 230px;
+    }
+
+    .map-box,
+    .province-box {
+        padding: 20px;
+    }
+}
+
+/* ==========================
+   8. CULTURE PAGE
+========================== */
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.culture-card {
+    background: white;
+    padding: 28px;
+    border-top: 4px solid var(--brown);
+    transition: 0.3s;
+}
+
+.culture-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+}
+
+.culture-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.culture-card p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+.culture-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.secondary-button {
+    display: inline-block;
+    border: 1px solid var(--brown);
+    color: var(--brown);
+    padding: 13px 22px;
+    font-size: 12px;
+}
+
+
+/* ==========================
+   9. QUIZ PAGE
+========================== */
+
+.quiz-container {
+    max-width: 850px;
+    margin: auto;
+    padding: 70px 25px;
+}
+
+.quiz-box {
+    background: white;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.quiz-progress {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--brown);
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    height: 7px;
+    background: #eee7d9;
+    margin-bottom: 35px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background: var(--green);
+    transition: 0.3s;
+}
+
+.quiz-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    margin-bottom: 25px;
+}
+
+.answer-list {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.answer-button {
+    text-align: left;
+    padding: 16px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.answer-button:hover:not(:disabled) {
+    border-color: var(--brown);
+    color: var(--brown);
+}
+
+.answer-button.correct {
+    background: #e1efe1;
+    border-color: #4c8650;
+}
+
+.answer-button.wrong {
+    background: #f8e3df;
+    border-color: #bd574a;
+}
+
+.answer-button:disabled {
+    cursor: default;
+}
+
+#feedback {
+    font-size: 13px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+#nextButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* ==========================
+   10. RESULT
+========================== */
+
+.result-box {
+    display: none;
+    background: white;
+    padding: 45px 25px;
+    text-align: center;
+}
+
+.result-box h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.final-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 65px;
+    color: var(--brown);
+    margin-bottom: 15px;
+}
+
+#resultMessage {
+    color: var(--gray);
+    font-size: 13px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.result-box .secondary-button {
+    margin-top: 20px;
+}
+
+
+/* ==========================
+   11. ANIMATION
+========================== */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* BACKGROUND PER PROVINSI */
+
+body.province-0 {
+    background: url("images/banten.jpeg") center/cover fixed;
+}
+
+body.province-1 {
+    background: url("images/dkijakarta.jpeg") center/cover fixed;
+}
+
+body.province-2 {
+    background: url("images/westjava.jpg") center/cover fixed;
+}
+
+body.province-3 {
+    background: url("images/centraljava.jpeg") center/cover fixed;
+}
+
+body.province-4 {
+    background: url("images/yogyakarta.jpeg") center/cover fixed;
+}
+
+body.province-5 {
+    background: url("images/eastjava.jpeg") center/cover fixed;
+}
+
+
+/* ==========================
+   12. RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+    .welcome-container {
+        padding: 50px 8%;
+    }
+
+    .map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .culture-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .page-container {
+        padding: 50px 5%;
+    }
+
+    .quiz-box {
+        padding: 25px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .member-list {
+        grid-template-columns: 1fr;
+    }
+
+    .culture-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .province-list {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        padding: 17px 5%;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .quiz-box h2 {
+        font-size: 22px;
+    }
+
+}

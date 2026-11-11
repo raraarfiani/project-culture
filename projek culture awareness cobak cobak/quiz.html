@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity In  Diversity - Culture Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">Unity In  Diversity<span>.</span></a>
+        <a href="map.html" class="back-link">← EXPLORE</a>
+    </nav>
+
+    <main class="quiz-container">
+
+        <div class="section-title">
+            <p class="small-title">TEST YOUR KNOWLEDGE</p>
+            <h1>Culture Quiz</h1>
+            <p>Let's see how much you have learned!</p>
+        </div>
+
+        <div class="quiz-box">
+
+            <div class="quiz-progress">
+
+                <span id="questionNumber">QUESTION 1 / 20</span>
+
+                <span id="scoreDisplay">SCORE: 0</span>
+
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+            <h2 id="questionText">
+                Loading question...
+            </h2>
+
+            <div class="answer-list" id="answerList">
+            </div>
+
+            <p id="feedback"></p>
+
+            <button
+                id="nextButton"
+                class="start-button"
+                onclick="nextQuestion()"
+                disabled
+            >
+                NEXT QUESTION →
+            </button>
+
+        </div>
+
+        <!-- HASIL AKHIR -->
+
+        <div class="result-box" id="resultBox">
+
+            <p class="small-title">QUIZ COMPLETED</p>
+
+            <h1>Your Result</h1>
+
+            <div class="final-score" id="finalScore">
+                0 / 20
+            </div>
+
+            <p id="resultMessage"></p>
+
+            <button class="start-button" onclick="restartQuiz()">
+                TRY AGAIN
+            </button>
+
+            <a href="map.html" class="secondary-button">
+                EXPLORE AGAIN
+            </a>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
